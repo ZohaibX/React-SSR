@@ -8,6 +8,7 @@ const UsersList = (props: any) => {
     props.fetchUsers();
   }, []);
 
+  //? this function is special for SEO
   const head = () => (
     <Helmet>
       <title>{`${props.users.data.length} Users Loaded`}</title>
@@ -22,6 +23,7 @@ const UsersList = (props: any) => {
   return (
     <div>
       {head()}
+      {/* I can place head() function anywhere, Helmet will automatically put it into head tag */}
       <h1> UsersList </h1>
       <h4>User Data is: {props.currentUser.googleId}</h4>
       <ul>

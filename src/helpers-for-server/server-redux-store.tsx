@@ -14,8 +14,8 @@ const CreateStore = (req) => {
     headers: { cookie: req.get('cookie') || '' }, // important -- we may need to handle 'cookie', if there is some difference in casing -- like 'Cookie' or so
   });
   //? server side proxy instance is not gonna go into the proxy setup in index.tsx
-  //? we have to provide full route
-  //? in our micro-services and k8s -- i can apply ingress-service route here
+  //? we have to provide full route to our backend service
+  //? in our micro-services and k8s -- i could apply ingress-service route here
 
   const store = createStore(
     rootReducer,

@@ -17,11 +17,17 @@ declare global {
 const axiosInstance = axios.create({
   baseURL: '/api',
 });
-// if any request comes to the browser as '/users'
-// it will go to '/api/users'
-// then, '/api/auth' will go to the server - index.ts and will attach to the proxy route
+// TODO i can assign any baseURL here, and will declare a proxy route.
+// proxy route will be the backend, where i wanna send the data
+// so as i have set baseURL '/api' and i send request to '/users'
+// then, request will go to server side - index.tsx and /api will be replaced to some backend route
+// and, request will become something like https://backendService/users
 
-// window.INITIAL_STATE must be defined on the server -- on the renderer file
+//! Remember -- if i wanna send request to some different route, i will have to send request to that route only
+// '/api/users' method is only for the route, that is set in the server side - index.tsx
+
+// window.INITIAL_STATE is equal to the redux state data, that is fetched on the first reload, by server side
+// this is set in the renderer file html doc
 const store = createStore(
   rootReducer,
   window.INITIAL_STATE,

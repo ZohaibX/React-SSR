@@ -33,7 +33,9 @@ const Header = (props) => {
 function mapStateToProps({ currentUser }) {
   return { currentUser };
 }
+// mapStateToProps have state object as an argument, we can fetch state[Data] like this as obvious
 
 export default connect(mapStateToProps)(Header);
-// note -- we want currentUser details to be rendered by server itself only
-// thats y we are not using mapDispatch to props ..
+// in App.tsx file, currentUserDetails are already fetched
+// and App.tsx file is directly connected to the every route we render --- notice --- only routes - pages
+// normal components (not pages) will be connected to App.tsx by using that components in that App.tsx

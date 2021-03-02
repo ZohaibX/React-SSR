@@ -34,7 +34,7 @@ export const fetchAdmins = () => async (dispatch, getState, api) => {
   dispatch({ type: FETCH_ADMINS, payload: data });
 };
 
-//? sync reducer action
+//? sync  action
 // Setting search text in a state
 // export const setUserToken = (token) => ({
 //   // we wanna recieve text here

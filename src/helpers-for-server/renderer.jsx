@@ -13,8 +13,9 @@ import serialize from 'serialize-javascript';
 //? the attack is called xss attack -- cross side script attack
 
 const renderer = (req, store, context) => {
-  // context, we are providing in context prop, it will send data into the renderer page on the browser
-  // here , we are using it in NotFound Page
+  // context, we are providing in context prop
+  // we have used it in notFound page, and then passed a property to server side there
+  // this context is handled in index.tsx
   const content = renderToString(
     <Provider store={store}>
       <StaticRouter location={req.path} context={context}>
@@ -42,7 +43,7 @@ const renderer = (req, store, context) => {
 
   // important -- thats y we will stick into the renderToString()
 
-  const helmet = Helmet.renderStatic(); //? to pull all the tags, we have provided to the components/pages
+  const helmet = Helmet.renderStatic(); //? to pull all the tags, we have provided to the rendered page
 
   // have added Materialize css cdn here
   return `

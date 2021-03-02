@@ -1,3 +1,6 @@
+//! This hook can be used to get or post data
+//! [get] data, that is not necessarily be rendered on initial server reload
+
 import axios from 'axios';
 import { useState } from 'react';
 

@@ -1,3 +1,5 @@
+//! This page is special, bcoz we have applied routes redirection using HOC
+
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchAdmins } from '../Store/actions/index';
@@ -9,6 +11,7 @@ const Admins = (props: any) => {
     props.fetchAdmins();
   }, []);
 
+  //? This function is for SEO
   const head = () => (
     <Helmet>
       <title>{`${props.admins.length} Admins Loaded`}</title>
@@ -23,6 +26,7 @@ const Admins = (props: any) => {
   return (
     <div>
       {head()}
+      {/* I can place head() function anywhere, Helmet will automatically put it into head tag */}
       <h1>Protected List Of Routes</h1>
       <ul>
         {props.admins.map((admin) => (

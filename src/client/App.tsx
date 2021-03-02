@@ -4,6 +4,7 @@ import Header from './components/header';
 import { fetchCurrentUser } from './Store/actions';
 
 // any route, that is matched by matchRoutes fn, will be passed to this App
+// This App component will be directly connected to every route and to the components, we use here - like header
 const App = ({ route }) => {
   return (
     <div>
@@ -13,16 +14,10 @@ const App = ({ route }) => {
   );
 };
 
-// function loadData(store) {
-//   //? Here, we will load currentUser Data
-//   if (store) {
-//     if (store.dispatch) {
-//       return store.dispatch(fetchCurrentUser());
-//     }
-//   }
-// }
-
 export default {
   component: App,
   loadData: ({ dispatch }) => dispatch(fetchCurrentUser()),
 };
+//? here, we have loaded current user data into the store
+//? this component is directly connected to every route and to the components, we use here - like header
+//? we can use this currentUser data there without dispatching currentUser action
